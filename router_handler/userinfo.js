@@ -50,7 +50,7 @@ exports.updateUserInfo = (req, res) => {
 
 // 更新用户密码的处理函数
 exports.updatePassword = (req, res) => {
-  // 根据 id 查询用户的信息
+  // 定义根据 id 查询用户的信息的 sql 语句
   const sql = `select * from ev_users where id=?`
   // 执行根据 id 查询用户的信息的 sql 语句
   db.query(sql, req.user.id, (err, results) => {
@@ -84,5 +84,24 @@ exports.updatePassword = (req, res) => {
       // 更新密码成功
       res.cc('更新密码成功', 0)
     })
+  })
+}
+
+// 更换用户头像的处理函数
+exports.updateAvatar = (req, res) => {
+  // 定义更新用户头像的 sql 语句
+  const sql = `update ev_users set user_pic=? where id=?`
+  // 调用db.quey()执行 sql 语句
+  db.query(sql, [req.body.avatar, req.user.id], (err, results) => {
+    // 执行 sql 语句失败
+    if (err) {
+      return res.cc(err)
+    }
+    // 判断影响的行数是否等于1
+    if (results.affectedRows !== 1) {
+      return res.cc('更换头像失败~')
+    }
+    // 更换用户头像成功
+    res.cc('头像更换成功~', 0)
   })
 }
