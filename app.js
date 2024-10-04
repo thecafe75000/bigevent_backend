@@ -42,6 +42,10 @@ const userinfoRouter = require('./router/userinfo')
 // 注意：以/my开头的接口都是需要权限的接口，要进行 Token 身份认证
 app.use('/my', userinfoRouter)
 
+// 导入并使用文章分类的路由模块
+const artCateRouter = require('./router/artcate')
+app.use('/my/article',artCateRouter)
+
 // 定义错误级别的中间件
 app.use((err, req, res, next) => {
   // 验证失败导致的错误
