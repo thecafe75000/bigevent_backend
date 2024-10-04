@@ -14,11 +14,6 @@ const config = require('../config')
 exports.regUser = (req, res) => {
   // 获取客户端提交到服务器的用户信息
   const userinfo = req.body
-  
-  // 对表单中的数据进行合法性的校验
-  // if (!userinfo.username||!userinfo.password) {
-  //   return res.cc('用户名或密码不合法!')
-  // }
 
   // 定义sql语句, 检查用户名是否被占用
   const sqlStr = `select * from ev_users where username=?`
