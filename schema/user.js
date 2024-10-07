@@ -47,6 +47,7 @@ exports.update_userinfo_schema = {
 // 导出验证更新用户密码的规则对象
 exports.update_password_schema = {
   body: {
+    rePwd: password,
     oldPwd: password,
     // 新密码不能和旧密码一致, 还必须符合密码的验证规则
     newPwd: joi.not(joi.ref('oldPwd')).concat(password)
