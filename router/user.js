@@ -19,4 +19,4 @@ router.post('/reguser',expressJoi(reg_login_schema), user_handle.regUser)
 // 登录路由接口
 router.post('/login', expressJoi(reg_login_schema), user_handle.login)
 
-module.exports = router
+module.exports = router 

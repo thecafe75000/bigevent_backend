@@ -6,7 +6,7 @@ const username = joi
   .string()
   .alphanum()
   .min(1)
-  .max(10)
+  .max(20)
   .required()
 
 // 定义密码的验证规则
@@ -37,6 +37,7 @@ exports.reg_login_schema = {
 exports.update_userinfo_schema = {
   // 需要对 body 里面的数据进行验证
   body: {
+    username, 
     id,
     nickname,
     email

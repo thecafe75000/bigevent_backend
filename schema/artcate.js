@@ -1,5 +1,5 @@
 // 导入定义验证规则的模块
-const joi = require('@hapi/joi')
+ const joi = require('@hapi/joi')
 
 // 定义 name 和 alias 的验证规则
 const name = joi.string().required()
